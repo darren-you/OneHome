@@ -82,10 +82,12 @@ class InfraredPage extends GetView<InfraredPageViewModel> {
                 ),
                 Positioned(
                   right: 16,
-                  child: CupertinoSwitch(
-                    value: true,
-                    onChanged: (value) {},
-                  ),
+                  child: Obx(() => CupertinoSwitch(
+                        value: controller.infraredLogicSwitch.value,
+                        onChanged: (value) {
+                          controller.setInfraredLogicSwitch(value);
+                        },
+                      )),
                 ),
               ],
             ),

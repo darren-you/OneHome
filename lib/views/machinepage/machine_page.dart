@@ -72,9 +72,7 @@ Widget setCardStatus(MachinePageViewModel controller, int cardIndex) {
       DeviceName.radarSensor.nameID) {
     return Obx(
       () => Text(
-        controller.deviceCardVOList[cardIndex].value.data == null
-            ? ''
-            : '${controller.deviceCardVOList[cardIndex].value.data}',
+        controller.deviceCardVOList[cardIndex].value.data == "1" ? '有人' : '无人',
         style: const TextStyle(fontWeight: FontWeight.bold),
       ),
     );

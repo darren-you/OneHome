@@ -82,9 +82,13 @@ class RadarPage extends GetView<RadarPageViewModel> {
                 ),
                 Positioned(
                   right: 16,
-                  child: CupertinoSwitch(
-                    value: true,
-                    onChanged: (value) {},
+                  child: Obx(
+                    () => CupertinoSwitch(
+                      value: controller.ladarLogicSwitch.value,
+                      onChanged: (value) {
+                        controller.setLadarLogicSwitch(value);
+                      },
+                    ),
                   ),
                 ),
               ],

@@ -3,6 +3,8 @@ import 'package:onehome/views/app_update/app_update_page.dart';
 import 'package:onehome/views/app_update/app_update_page_vm.dart';
 import 'package:onehome/views/humidity/humidity_page.dart';
 import 'package:onehome/views/humidity/humidity_page_vm.dart';
+import 'package:onehome/views/infrared/api/infrard_api.dart';
+import 'package:onehome/views/infrared/api/infrard_api_impl.dart';
 import 'package:onehome/views/infrared/infrared_page.dart';
 import 'package:onehome/views/infrared/infrared_page_vm.dart';
 import 'package:onehome/views/light/light_page_vm.dart';
@@ -12,6 +14,8 @@ import 'package:onehome/views/light/light_page.dart';
 import 'package:onehome/views/light/light_task_api.dart';
 import 'package:onehome/views/light/light_task_api_impl.dart';
 import 'package:onehome/views/operational_log/operational_log_page.dart';
+import 'package:onehome/views/radar/api/radar_api.dart';
+import 'package:onehome/views/radar/api/radar_api_impl.dart';
 import 'package:onehome/views/radar/radar_page.dart';
 import 'package:onehome/views/radar/radar_page_vm.dart';
 import 'package:onehome/views/temperature/temperature_page.dart';
@@ -92,6 +96,7 @@ class AppRountes {
       page: () => const RadarPage(),
       binding: BindingsBuilder(
         () {
+          Get.lazyPut<RadarApi>(() => RadarApiImpl());
           Get.lazyPut(() => RadarPageViewModel());
         },
       ),
@@ -101,6 +106,7 @@ class AppRountes {
       page: () => const InfraredPage(),
       binding: BindingsBuilder(
         () {
+          Get.lazyPut<InfrardApi>(() => InfrardApiImpl());
           Get.lazyPut(() => InfraredPageViewModel());
         },
       ),
