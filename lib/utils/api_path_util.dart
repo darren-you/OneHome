@@ -1,8 +1,8 @@
 class ApiPathUtil {
   ApiPathUtil._();
 
-  //static const String springBootBaseUrl = "https://singlestep.cn/onehome";
-  static const String springBootBaseUrl = "http://192.168.218.98:8080/onehome";
+  static const String springBootBaseUrl = "https://singlestep.cn/onehome";
+  //static const String springBootBaseUrl = "http://192.168.218.98:8080/onehome";
 
   static const String appInfo = "/app/info";
   static const String setLightTask = "/schedule";

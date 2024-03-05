@@ -13,21 +13,21 @@ class InitService {
     WidgetsFlutterBinding.ensureInitialized();
 
     // 初始化窗口管理
-    if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
-      await windowManager.ensureInitialized();
-      WindowOptions windowOptions = const WindowOptions(
-          size: Size(1000, 680),
-          center: true,
-          backgroundColor: Colors.transparent,
-          skipTaskbar: false,
-          titleBarStyle: TitleBarStyle.hidden,
-          minimumSize: Size(1000, 680));
-      windowManager.waitUntilReadyToShow(windowOptions, () async {
-        await windowManager.show();
-        await windowManager.focus();
-      });
-      debugPrint('< < <   窗口初始化完成✅   > > >');
-    }
+    // if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
+    //   await windowManager.ensureInitialized();
+    //   WindowOptions windowOptions = const WindowOptions(
+    //       size: Size(1000, 680),
+    //       center: true,
+    //       backgroundColor: Colors.transparent,
+    //       skipTaskbar: false,
+    //       titleBarStyle: TitleBarStyle.hidden,
+    //       minimumSize: Size(1000, 680));
+    //   windowManager.waitUntilReadyToShow(windowOptions, () async {
+    //     await windowManager.show();
+    //     await windowManager.focus();
+    //   });
+    //   debugPrint('< < <   窗口初始化完成✅   > > >');
+    // }
 
     Get.put(MqttService());
 

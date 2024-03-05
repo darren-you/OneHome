@@ -27,7 +27,7 @@ Widget _userBg(BuildContext context, UserPageViewModel controller) {
                 SizedBox(
                   height: context.height / 2.91,
                   child: ExtendedImage.network(
-                    "https://singlestep.cn/wejinda/res/img/mybg.jpg",
+                    "https://singlestep.cn/wejinda/res/img/onestep_bg.jpeg",
                     fit: BoxFit.cover,
                     cache: true,
                     //cancelToken: cancellationToken,
@@ -77,7 +77,7 @@ Widget _userLogined(BuildContext context, UserPageViewModel controller) {
                   height: 60,
                   child: ClipOval(
                     child: ExtendedImage.network(
-                      "https://singlestep.cn/wejinda/res/img/useravatar/eace3d3bf3038df66cb45d634606b0f3.png",
+                      "https://singlestep.cn/wejinda/res/img/onestep_avater.jpeg",
                       fit: BoxFit.contain,
                       //mode: ExtendedImageMode.editor,
                     ),
@@ -152,7 +152,7 @@ Widget _userLogined(BuildContext context, UserPageViewModel controller) {
             alignment: Alignment.topLeft,
             //color: Colors.amber,
             child: const Text(
-              'Coding for future',
+              'Coding for future, 写完这行就出发！\n 骑行🚴、羽毛球🏸、摄影📷...',
               maxLines: 2,
               style: TextStyle(
                 overflow: TextOverflow.ellipsis,

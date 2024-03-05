@@ -44,7 +44,7 @@ class MachinePageViewModel extends GetxController {
       cmdPic: getCmdPicByName('1'),
       data: '0',
       onTap: () {
-        Get.toNamed(PagePathUtil.lightPage);
+        Get.toNamed(PagePathUtil.lightPage, arguments: 1);
       },
       cmd: () {},
     ).obs,

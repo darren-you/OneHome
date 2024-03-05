@@ -1,12 +1,8 @@
-import 'dart:ffi';
-
-import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:onehome/enumm/appbar_enum.dart';
 import 'package:onehome/enumm/color_enum.dart';
-import 'package:onehome/enumm/nav_enum.dart';
 import 'package:onehome/utils/assert_util.dart';
 import 'package:onehome/views/machinepage/machine_page_vm.dart';
 import 'package:onehome/views/machinepage/config/board_config.dart';

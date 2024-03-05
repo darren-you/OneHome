@@ -14,9 +14,15 @@ import '../../components/view/custom_bottom_sheet.dart';
 import '../../service/mqtt_config.dart';
 import '../../service/mqtt_service.dart';
 import '../machinepage/dto/message_info.dart';
+import '../machinepage/machine_page_vm.dart';
+import '../machinepage/vo/device_card_vo.dart';
 import '../mainpage/nav_page_vm.dart';
 
 class LightPageViewModel extends GetxController {
+  final machinePageViewModel = Get.find<MachinePageViewModel>();
+  final cardIndex = Get.arguments;
+  late Rx<DeviceCardVO> cardModel;
+
   final navPageViewModel = Get.find<NavPageViewModel>();
   final mqttService = Get.find<MqttService>();
   final userInfoApi = Get.find<LightTaskApi>();
@@ -110,6 +116,12 @@ class LightPageViewModel extends GetxController {
     // 将输入的日期和时间字符串拼接起来
     dateTime = '${dateUI.value}T${minuteUI.value}';
     debugPrint('选择时间ISO格式: $dateTime');
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    cardModel = machinePageViewModel.deviceCardVOList[Get.arguments - 1];
   }
 
   @override

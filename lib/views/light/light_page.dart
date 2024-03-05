@@ -12,43 +12,71 @@ class LightPage extends GetView<LightPageViewModel> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomBody(
       backgroundColor: MyColors.background.color,
-      body: CustomBody(
-        enableAppBarPadding: false,
-        padding: EdgeInsets.only(
-            top: AppBarOptions.hight50.height + context.mediaQueryPadding.top),
-        appBar: const NormalAppBar(
-          title: Text(
-            '台灯',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          color: Colors.white,
+      scroller: true,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      appBar: NormalAppBar(
+        title: Text(
+          controller.cardModel.value.dHome,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        body: Stack(
+      ),
+      body: SizedBox(
+        width: context.width,
+        height: context.height -
+            AppBarOptions.hight50.height -
+            context.mediaQueryPadding.bottom -
+            context.mediaQueryPadding.top,
+        child: Column(
           children: [
-            Container(
-              width: context.width,
-              height: context.height -
-                  AppBarOptions.hight50.height -
-                  context.mediaQueryPadding.top,
-              color: MyColors.background.color,
-              child: Center(
-                child: Obx(() => Text(
-                      '台灯亮度: % ${controller.sliderValue.value.toInt()}',
-                      style: const TextStyle(fontSize: 16),
-                    )),
+            const SizedBox(
+              height: 60,
+            ),
+            Center(
+              child: Obx(
+                () => Text(
+                  '${controller.sliderValue.value.toInt()}%',
+                  style: const TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
+            const Text(
+              '台灯亮度',
+              style: TextStyle(color: Colors.black54),
+            ),
+            const SizedBox(height: 32),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 16),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                  color: Colors.black12.withOpacity(0.07),
+                  borderRadius: BorderRadius.circular(12)),
+              child: RichText(
+                textAlign: TextAlign.justify,
+                text: const TextSpan(
+                  text:
+                      """台灯的光强度一般用流明（Lumens）来衡量，而色温则用开尔文（Kelvin，K）来表示。色温对于阅读、观看电影、处理文档或写作等活动的舒适度有重要影响。以下是一些活动所推荐的色温范围：
+\n阅读：对于阅读来说，建议使用色温在4000K到5000K之间的光源，这是中性到冷白光的范围。这样的色温有助于提高注意力和集中力，使得文字更清晰，减少视觉疲劳。
+\n观看电影：观看电影时，较低的色温（2700K到3000K）会创造出温馨舒适的环境，类似于白炽灯的色温，适合放松和娱乐活动。
+\n处理文档：处理文档时，中性白光（4000K左右）可以帮助提高工作效率，同时减少眼睛疲劳。
+\n写作：写作时，色温在4000K到5000K之间的光源可以帮助提高思维清晰度和集中力。""",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
             Positioned(
               bottom: 0,
               left: 0,
               right: 0,
               child: Container(
                 color: Colors.transparent,
-                margin: const EdgeInsets.only(left: 16, bottom: 32, right: 16),
                 width: context.width,
-                height: 200,
+                //height: 200,
                 child: Column(
                   children: [
                     Container(
