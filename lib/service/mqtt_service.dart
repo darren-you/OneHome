@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:onehome/components/notification/animated_notification.dart';
-import 'package:onehome/components/notification/animated_toast.dart';
-import 'package:onehome/components/notification/custom_notification.dart';
 import 'package:onehome/service/mqtt_config.dart';
 import 'package:typed_data/typed_data.dart' as typed;
 import 'package:flutter/widgets.dart';
@@ -66,7 +63,7 @@ class MqttService extends GetxService {
       await _mqttClient.connect();
     } catch (e) {
       debugPrint('Mqtt 连接错误: $e ❌');
-      CustomNotification.notice(Get.context!, "连接❌");
+      // CustomNotification.notice(Get.context!, "连接❌");
       disonnect();
       disconnectedCallback?.call();
     }
@@ -75,7 +72,7 @@ class MqttService extends GetxService {
   /// 连接成功回调
   void onConnected() {
     debugPrint('Mqtt 连接成功✅');
-    CustomNotification.notice(Get.context!, '连接✅');
+    // CustomNotification.notice(Get.context!, '连接✅');
     connectSuccessCallback?.call(_mqttClient);
     _handleMqttMessage();
   }
@@ -106,7 +103,7 @@ class MqttService extends GetxService {
   /// MQTT连接断开回调函数
   void onDisconnected() {
     debugPrint('Mqtt 断开连接❌');
-    CustomNotification.notice(Get.context!, '连接❌');
+    // CustomNotification.notice(Get.context!, '连接❌');
     disconnectedCallback?.call();
   }
 
